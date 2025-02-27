@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smartwatch Product</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+      integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="text-gray-800">
+    <div class="container mx-auto py-12 px-4">
+      <div class="max-w-4xl mx-auto overflow-hidden">
+        <div class="flex flex-col md:flex-row items-stretch gap-6">
+          <div class="flex justify-center items-center md:w-1/2">
+            <img
+              id="product-image"
+              src="./images/purple.png"
+              alt="Smartwatch"
+              class="h-full md:h-auto object-cover rounded-lg"
+            />
+          </div>
+          <div
+            class="p-6 md:p-8 md:w-1/2 flex flex-col justify-between"
+            style="max-height: 85%"
+          >
+            <h1 class="text-2xl font-bold text-gray-800">
+              Classy Modern Smart Watch
+            </h1>
+            <div class="flex items-center mt-2">
+              <div class="text-yellow-400">★★★★☆</div>
+              <span class="ml-2 text-sm text-gray-600">(2 Reviews)</span>
+            </div>
+            <div class="mt-4">
+              <span class="text-gray-400 line-through text-lg">$99.00</span>
+              <span class="text-purple-600 text-2xl font-bold">$79.00</span>
+            </div>
+            <p class="mt-4 text-gray-600 text-sm">
+              I must explain to you how all this mistaken idea of denouncing
+              pleasure and praising pain was born and I will give you a complete
+              account of the system, and expound the actual teaching.
+            </p>
+            <div class="mt-6">
+              <div class="flex items-center text-gray-700 text-sm">
+                <span class="font-semibold w-24">Type:</span>
+                <span>Watch</span>
+              </div>
+              <div class="flex items-center text-gray-700 text-sm mt-1">
+                <span class="font-semibold w-24">Model:</span>
+                <span>Forerunner 290XT</span>
+              </div>
+            </div>
+
+            <!-- Band Color -->
+            <div class="mt-4">
+              <span class="text-sm font-semibold text-gray-700"
+                >Band Color</span
+              >
+              <div class="flex items-center mt-1 space-x-2">
+                <button
+                  class="w-6 h-6 rounded-full bg-purple-500 border-2 border-purple-600 ring-button"
+                  id="purple-color"
+                ></button>
+                <button
+                  class="w-6 h-6 rounded-full bg-teal-500 border-2 border-gray-300 ring-button"
+                  id="teal-color"
+                ></button>
+                <button
+                  class="w-6 h-6 rounded-full bg-cyan-500 border-2 border-gray-300 ring-button"
+                  id="cyan-color"
+                ></button>
+                <button
+                  class="w-6 h-6 rounded-full bg-gray-700 border-2 border-gray-300 ring-button"
+                  id="gray-color"
+                ></button>
+              </div>
+            </div>
+
+            <div class="mt-2">
+              <span class="text-sm font-semibold text-gray-700"
+                >Wrist Size</span
+              >
+              <div class="grid grid-cols-4 gap-2 mt-2">
+                <button
+                  onclick="selectWristSize('S')"
+                  class="px-4 py-2 border border-gray-300 rounded-lg text-sm hover:bg-gray-100"
+                  id="size-S"
+                >
+                  S $69
+                </button>
+                <button
+                  onclick="selectWristSize('M')"
+                  class="px-4 py-2 border border-gray-300 rounded-lg text-sm hover:bg-gray-100"
+                  id="size-M"
+                >
+                  M $79
+                </button>
+                <button
+                  onclick="selectWristSize('L')"
+                  class="px-4 py-2 border border-gray-300 rounded-lg text-sm hover:bg-gray-100"
+                  id="size-L"
+                >
+                  L $89
+                </button>
+                <button
+                  onclick="selectWristSize('XL')"
+                  class="px-4 py-2 border border-gray-300 rounded-lg text-sm hover:bg-gray-100"
+                  id="size-XL"
+                >
+                  XL $99
+                </button>
+              </div>
+            </div>
+
+            <!-- Quantity & Add to Cart -->
+            <div class="mt-6 flex flex-wrap items-center space-x-4">
+              <div class="flex items-center border border-gray-300 rounded-lg">
+                <button
+                  class="px-4 py-2 text-gray-600 hover:text-gray-800 quantity-button"
+                >
+                  -
+                </button>
+                <span id="quantity" class="px-4">0</span>
+                <button
+                  class="px-4 py-2 text-gray-600 hover:text-gray-800 quantity-button"
+                >
+                  +
+                </button>
+              </div>
+              <div class="flex items-center space-x-2">
+                <button
+                  class="px-6 py-3 bg-purple-600 text-white rounded-lg shadow-lg hover:bg-purple-700"
+                  id="add-to-cart"
+                >
+                  Add to Cart
+                </button>
+
+                <button class="text-purple-600 hover:text-purple-700 text-2xl">
+                  <i class="fas fa-heart"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Checkout Button Container (Centered Below Image & Text) -->
+        <div
+          id="checkout-container"
+          class="mt-6 flex justify-center w-full hidden"
+        >
+          <button
+            id="checkout-btn"
+            class="px-6 py-2 bg-orange-400 text-white rounded-3xl shadow-lg hover:bg-orange-500 flex items-center"
+          >
+            Checkout
+            <span
+              class="ml-2 bg-white text-orange-500 rounded-lg w-6 h-6 flex items-center justify-center text-xs font-bold"
+              id="cart-count"
+            >
+              0
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for Cart Preview -->
+    <div
+      id="cart-modal"
+      class="fixed inset-0 bg-gray-500 bg-opacity-75 flex justify-center items-center z-50 hidden"
+    >
+      <div class="bg-white p-6 rounded-lg shadow-lg w-96 md:w-2/3 lg:w-1/2">
+        <h2 class="text-xl font-bold text-gray-800">Your Cart</h2>
+
+        <!-- Cart Items Table -->
+        <div class="overflow-x-auto mt-4">
+          <table class="min-w-full table-auto">
+            <thead>
+              <tr class="text-left border-b">
+                <th class="py-2 px-4">Item</th>
+                <th class="py-2 px-4">Color</th>
+                <th class="py-2 px-4">Size</th>
+                <th class="py-2 px-4">Quantity</th>
+                <th class="py-2 px-4">Price</th>
+              </tr>
+            </thead>
+            <tbody id="cart-items">
+              <!-- Cart items will go here dynamically -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Buttons -->
+        <div class="flex justify-end gap-2 mt-4">
+          <button
+            id="continue-shopping"
+            class="px-6 py-2 bg-gray-300 text-gray-800 rounded-lg hover:bg-gray-400"
+          >
+            Continue Shopping
+          </button>
+          <button
+            class="px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700"
+            id="checkout"
+          >
+            Checkout
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/script.js"></script>
+  </body>
+</html>
